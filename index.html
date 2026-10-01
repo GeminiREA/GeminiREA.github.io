@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gemini Real Estate Associates</title>
+<meta name="description" content="Gemini Real Estate Associates is a New York-based real estate investment, development and advisory firm led by Shane Neuringer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #14202b;
+    --ink-soft: #2b3a48;
+    --muted: #5d6b78;
+    --brass: #a98450;
+    --brass-dark: #8a6a3a;
+    --line: #e2ddd3;
+    --paper: #ffffff;
+    --sand: #f6f3ee;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: "Inter", sans-serif; font-size: 16px; line-height: 1.7; color: var(--ink); background: var(--paper); }
+  h1, h2, h3 { font-family: "Playfair Display", serif; font-weight: 400; line-height: 1.2; margin: 0 0 .6em; }
+  a { color: var(--brass-dark); }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  header.site { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.96); border-bottom: 1px solid var(--line); backdrop-filter: blur(6px); }
+  header.site .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .brand { text-decoration: none; color: var(--ink); line-height: 1.1; }
+  .brand .g { font-family: "Playfair Display", serif; font-size: 24px; letter-spacing: .28em; display: block; }
+  .brand .s { font-size: 10px; letter-spacing: .26em; text-transform: uppercase; color: var(--brass-dark); }
+  header.site nav a { margin-left: 28px; text-decoration: none; color: var(--ink); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; }
+  header.site nav a:hover { color: var(--brass-dark); }
+  @media (max-width: 720px) { header.site nav a:not(.keep) { display: none; } }
+
+  .hero { background: linear-gradient(135deg, #0f1a24 0%, #1f3242 60%, #2b4358 100%); color: #fff; padding: 130px 0 120px; }
+  .hero .eyebrow { color: #d3b98b; }
+  .hero h1 { font-size: clamp(36px, 5.4vw, 62px); max-width: 780px; }
+  .hero p { max-width: 640px; font-size: 18px; color: #d9e0e6; margin: 0 0 34px; }
+  .btn { display: inline-block; padding: 14px 32px; border: 1px solid var(--brass); background: var(--brass); color: #fff; text-decoration: none; text-transform: uppercase; letter-spacing: .1em; font: 600 13px "Inter", sans-serif; cursor: pointer; }
+  .btn:hover { background: var(--brass-dark); border-color: var(--brass-dark); }
+  .btn.ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.6); margin-left: 12px; }
+  .btn.ghost:hover { background: rgba(255,255,255,.12); }
+  .btn:disabled { opacity: .6; cursor: default; }
+
+  section { padding: 84px 0; }
+  section.sand { background: var(--sand); }
+  .eyebrow { text-transform: uppercase; letter-spacing: .16em; font-size: 12px; font-weight: 600; color: var(--brass-dark); margin-bottom: 14px; }
+  h2 { font-size: clamp(28px, 3.4vw, 40px); }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+  @media (max-width: 860px) { .split { grid-template-columns: 1fr; gap: 32px; } }
+  .lead { font-size: 18px; color: var(--ink-soft); }
+
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 36px; }
+  .card { background: #fff; border-top: 3px solid var(--brass); padding: 26px 24px; box-shadow: 0 1px 3px rgba(20,32,43,.08); }
+  .card h3 { font-size: 20px; }
+  .card p { margin: 0; font-size: 15px; color: var(--muted); }
+  @media (max-width: 960px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .cards { grid-template-columns: 1fr; } }
+
+  .stats { background: var(--ink); color: #fff; padding: 56px 0; }
+  .stats .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center; }
+  .stats .n { font-family: "Playfair Display", serif; font-size: clamp(32px, 4.4vw, 50px); line-height: 1.1; color: #e2c893; }
+  .stats .l { font-size: 13px; letter-spacing: .06em; opacity: .85; margin-top: 8px; }
+  @media (max-width: 640px) { .stats .grid { grid-template-columns: 1fr; } }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .tags span { border: 1px solid var(--line); background: #fff; padding: 6px 14px; font-size: 13px; letter-spacing: .04em; }
+
+  .principal h3 { font-size: 28px; margin-bottom: 2px; }
+  .principal .role { font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--brass-dark); font-weight: 600; margin-bottom: 18px; }
+  ul.dash { list-style: none; padding: 0; margin: 0; }
+  ul.dash li { position: relative; padding-left: 28px; margin-bottom: 12px; }
+  ul.dash li::before { content: ""; position: absolute; left: 0; top: .78em; width: 12px; height: 2px; background: var(--brass); }
+
+  .initiative { display: grid; grid-template-columns: 1.2fr 1fr; background: var(--ink); color: #fff; margin-top: 36px; }
+  .initiative .body { padding: 44px 40px; }
+  .initiative h3 { font-size: 28px; }
+  .initiative p { color: #d9e0e6; }
+  .initiative .side { background: linear-gradient(135deg, #a98450, #7d6038); display: flex; align-items: center; justify-content: center; padding: 30px; text-align: center; font-family: "Playfair Display", serif; font-size: 22px; letter-spacing: .04em; }
+  @media (max-width: 800px) { .initiative { grid-template-columns: 1fr; } .initiative .side { padding: 22px; } }
+
+  #contact { scroll-margin-top: 72px; }
+  .contact-card { border: 1px solid var(--line); background: #fff; padding: 28px 30px; margin-top: 26px; }
+  .contact-card .cname { font-family: "Playfair Display", serif; font-size: 26px; }
+  .contact-card .ctitle { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--brass-dark); font-weight: 600; margin-bottom: 16px; }
+  .contact-card .row { display: grid; grid-template-columns: 80px 1fr; padding: 10px 0; border-top: 1px solid var(--line); }
+  .contact-card .k { font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); padding-top: 3px; }
+  .contact-card .v { font-weight: 600; word-break: break-word; }
+  .contact-form { background: var(--sand); padding: 32px 30px; }
+  .contact-form h3 { font-size: 24px; }
+  .contact-form label { display: block; font-size: 13px; font-weight: 600; margin: 16px 0 6px; }
+  .contact-form .opt { font-weight: 400; color: var(--muted); }
+  .contact-form input, .contact-form textarea { width: 100%; padding: 11px 12px; font: inherit; color: var(--ink); border: 1px solid var(--line); background: #fff; border-radius: 0; }
+  .contact-form input:focus, .contact-form textarea:focus { outline: 2px solid var(--brass); }
+  .contact-form .btn { margin-top: 22px; }
+  .form-note { font-size: 13px; color: var(--muted); margin: 16px 0 0; }
+
+  footer { background: #0d161e; color: #a9b6c2; font-size: 12px; line-height: 1.6; padding: 38px 0; }
+  footer a { color: #cdb88f; }
+  footer .name { color: #fff; letter-spacing: .12em; text-transform: uppercase; font-size: 12px; margin-bottom: 12px; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="g">GEMINI</span><span class="s">Real Estate Associates</span></a>
+    <nav aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#services">What We Do</a>
+      <a href="#experience">Experience</a>
+      <a href="#initiatives">Initiatives</a>
+      <a href="#contact" class="keep">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">New York City</div>
+    <h1>Real estate investment, development and advisory, built on New York experience.</h1>
+    <p>Gemini Real Estate Associates brings more than two decades of hands-on acquisition, development, financing and asset management experience to the real estate we invest in and advise on.</p>
+    <a class="btn" href="#contact">Get in touch</a>
+    <a class="btn ghost" href="#initiatives">Our initiatives</a>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow">About</div>
+      <h2>A New York-based real estate firm</h2>
+    </div>
+    <div>
+      <p class="lead">Gemini Real Estate Associates is a New York-based real estate investment, development and advisory firm. We work across property types and the full life of a deal, from sourcing and underwriting through financing, execution and asset management.</p>
+      <p>Our approach is hands-on and relationship-driven. We have owned, operated and leased real estate ourselves, which shapes how we underwrite, who we partner with and how we advise.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sand" id="services">
+  <div class="wrap">
+    <div class="eyebrow">What We Do</div>
+    <h2>Four ways we work</h2>
+    <div class="cards">
+      <div class="card"><h3>Investment</h3><p>Acquiring and owning real estate directly and alongside capital partners, with a focus on New York City.</p></div>
+      <div class="card"><h3>Development</h3><p>Guiding projects from concept and entitlements through construction and delivery.</p></div>
+      <div class="card"><h3>Financing</h3><p>Structuring and sourcing debt and equity capital for acquisitions and projects.</p></div>
+      <div class="card"><h3>Advisory &amp; Asset Management</h3><p>Strategic advice and hands-on oversight to protect and grow property value.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="stats" id="experience">
+  <div class="wrap grid">
+    <div><div class="n">$3Bn+</div><div class="l">in transactions across acquisitions, development, financing and asset management</div></div>
+    <div><div class="n">25+ years</div><div class="l">of real estate experience in New York and beyond</div></div>
+    <div><div class="n">5</div><div class="l">asset classes: multifamily, condominium, office, retail and hospitality</div></div>
+  </div>
+</div>
+
+<section id="principal">
+  <div class="wrap split principal">
+    <div>
+      <div class="eyebrow">Leadership</div>
+      <h2>Shane Neuringer</h2>
+      <div class="role">Founder &amp; Managing Principal</div>
+      <p>Shane has been involved in more than $3 billion of real estate transactions spanning acquisitions, development, financing and asset management. He has held senior positions at CB Developers, Stellar Management and Rockrose Development, all major New York investment and development companies, and served as an AVP in acquisitions and asset management at a $5 billion pension fund advisor.</p>
+      <p>He holds an M.S. in Real Estate Investment and Development from New York University and is a licensed New York State real estate broker.</p>
+    </div>
+    <div>
+      <div class="eyebrow">Hands-on ownership</div>
+      <h3>We invest like owners because we are</h3>
+      <ul class="dash">
+        <li>Managing member of a neighborhood strip center in the Washington, D.C. metro area, owned since 2013</li>
+        <li>Owner of a ground-floor retail condominium in a New York City residential building, since 2014</li>
+        <li>Experience across multifamily, condominium, office, retail and hospitality</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sand" id="initiatives">
+  <div class="wrap">
+    <div class="eyebrow">Current Initiatives</div>
+    <h2>Where we're focused now</h2>
+    <div class="initiative">
+      <div class="body">
+        <h3>NYC Retail Investment Platform</h3>
+        <p>In partnership with SteeleHarbour Capital Partners, we are acquiring and repositioning retail buildings and condominiums across New York City.</p>
+        <a class="btn" href="steeleharbour-nyc-retail/">View the platform</a>
+      </div>
+      <div class="side">Retail buildings &amp; condominiums<br>New York City</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow">Contact</div>
+      <h2>Let's talk</h2>
+      <p>For property opportunities, financing, partnership inquiries or advisory work, reach out directly.</p>
+      <div class="contact-card">
+        <div class="cname">Shane Neuringer</div>
+        <div class="ctitle">Founder &amp; Managing Principal</div>
+        <div class="row"><div class="k">Email</div><div class="v"><a href="mailto:shane@grcnyc.com">shane@grcnyc.com</a></div></div>
+        <div class="row"><div class="k">Phone</div><div class="v"><a href="tel:+16464086216">646-408-6216</a></div></div>
+      </div>
+    </div>
+    <form id="contact-form" class="contact-form" novalidate>
+      <h3>Send a message</h3>
+      <label for="cf-name">Your name</label>
+      <input id="cf-name" name="name" type="text" autocomplete="name" required>
+      <label for="cf-email">Your email</label>
+      <input id="cf-email" name="email" type="email" autocomplete="email" required>
+      <label for="cf-phone">Phone <span class="opt">(optional)</span></label>
+      <input id="cf-phone" name="phone" type="tel" autocomplete="tel">
+      <label for="cf-org">Company <span class="opt">(optional)</span></label>
+      <input id="cf-org" name="org" type="text" autocomplete="organization">
+      <label for="cf-msg">Message</label>
+      <textarea id="cf-msg" name="message" rows="6" required></textarea>
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      <button type="submit" class="btn">Send message</button>
+      <p class="form-note" id="cf-note">Your message goes straight to our team. You can also email <a href="mailto:shane@grcnyc.com">shane@grcnyc.com</a> or call 646-408-6216.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="name">Gemini Real Estate Associates</div>
+    <p>This website is provided for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any security or investment product. Any such offer will be made only by means of confidential offering materials and only to qualified investors in accordance with applicable law. Descriptions of our activities and strategies reflect current views and intentions, are subject to change without notice, and are not a guarantee of future results.</p>
+    <p>&copy; Gemini Real Estate Associates. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var ENDPOINT = 'https://formsubmit.co/ajax/shane@grcnyc.com';
+    var form = document.getElementById('contact-form');
+    var note = document.getElementById('cf-note');
+    var btn = form.querySelector('button[type="submit"]');
+
+    function say(text, color) { note.textContent = text; note.style.color = color || ''; }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var f = form.elements;
+      var name = f.name.value.trim(), email = f.email.value.trim(), msg = f.message.value.trim();
+      if (!name || !email || !/^\S+@\S+\.\S+$/.test(email) || !msg) {
+        say('Please enter your name, a valid email address and a message.', '#b3261e');
+        return;
+      }
+      if (f._honey.value) { return; }
+
+      btn.disabled = true; btn.textContent = 'Sending...';
+      say('');
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          phone: f.phone.value.trim() || 'n/a',
+          company: f.org.value.trim() || 'n/a',
+          message: msg,
+          _subject: 'Website inquiry from ' + name,
+          _template: 'table',
+          _captcha: 'false'
+        })
+      })
+      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, data: d }; }); })
+      .then(function (res) {
+        if (!res.ok || String(res.data.success) === 'false') { throw new Error(res.data.message || 'failed'); }
+        form.reset();
+        say('Thank you. Your message has been sent and we\'ll be in touch.', '#1f6b3a');
+      })
+      .catch(function () {
+        note.innerHTML = 'Sorry, your message could not be sent. Please email <a href="mailto:shane@grcnyc.com">shane@grcnyc.com</a> or call 646-408-6216.';
+        note.style.color = '#b3261e';
+      })
+      .then(function () { btn.disabled = false; btn.textContent = 'Send message'; });
+    });
+  })();
+</script>
+
+</body>
+</html>
