@@ -82,6 +82,7 @@
 
   #contact { scroll-margin-top: 72px; }
   .contact-card { border: 1px solid var(--line); background: #fff; padding: 28px 30px; margin-top: 26px; }
+  .contact-card-top { margin: 0 0 28px; }
   .contact-card .cname { font-family: "Playfair Display", serif; font-size: 26px; }
   .contact-card .ctitle { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--brass-dark); font-weight: 600; margin-bottom: 16px; }
   .contact-card .row { display: grid; grid-template-columns: 80px 1fr; padding: 10px 0; border-top: 1px solid var(--line); }
@@ -200,15 +201,14 @@
       <div class="eyebrow">Contact</div>
       <h2>Let's talk</h2>
       <p>For property opportunities, financing, partnership inquiries or advisory work, reach out directly.</p>
-      <div class="contact-card">
+    </div>
+    <form id="contact-form" class="contact-form" novalidate>
+      <div class="contact-card contact-card-top">
         <div class="cname">Shane Neuringer</div>
         <div class="ctitle">Founder &amp; Managing Principal</div>
         <div class="row"><div class="k">Email</div><div class="v"><a href="mailto:shane@grcnyc.com">shane@grcnyc.com</a></div></div>
         <div class="row"><div class="k">Phone</div><div class="v"><a href="tel:+19145107174">914-510-7174</a></div></div>
       </div>
-    </div>
-    <form id="contact-form" class="contact-form" novalidate>
-      <h3>Send a message</h3>
       <label for="cf-name">Your name</label>
       <input id="cf-name" name="name" type="text" autocomplete="name" required>
       <label for="cf-email">Your email</label>
@@ -221,7 +221,7 @@
       <textarea id="cf-msg" name="message" rows="6" required></textarea>
       <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
       <button type="submit" class="btn">Send message</button>
-      <p class="form-note" id="cf-note">Your message goes straight to our team. You can also email <a href="mailto:shane@grcnyc.com">shane@grcnyc.com</a> or call 914-510-7174.</p>
+      <p class="form-note" id="cf-note"></p>
     </form>
   </div>
 </section>
